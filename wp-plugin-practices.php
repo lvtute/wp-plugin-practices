@@ -28,13 +28,31 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 Copyright 2005-2015 Automattic, Inc.
 */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
+defined( 'ABSPATH' ) or die( 'Hey, what are you doing here? You silly human!' );
+
+class AlecadddPlugin
+{
+	function activate() {
+		// generated a CPT
+		// flush rewrite rules
+	}
+
+	function deactivate() {
+		// flush rewrite rules
+	}
+
+	function uninstall() {
+		// delete CPT
+		// delete all the plugin data from the DB
+	}
 }
 
-defined( 'ABSPATH' ) or die( 'Hey, you can\t access this file, you silly human!' );
+ 
 
-if ( ! function_exists( 'add_action' ) ) {
-	echo 'Hey, you can\t access this file, you silly human!';
-	exit;
-}
+// activation
+register_activation_hook( __FILE__, array( $alecadddPlugin, 'activate' ) );
+
+// deactivation
+register_deactivation_hook( __FILE__, array( $alecadddPlugin, 'deactivate' ) );
+
+// uninstall
